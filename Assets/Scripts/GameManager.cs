@@ -17,9 +17,8 @@ public class GameManager : MonoBehaviour
     public static event Action<RSPVariants> PlayerChoosedEvent;
     public static event Action<RSPVariants> AIChoosedEvent;
 
-    public static event Action GameWin;
-    public static event Action GameDraw;
-    public static event Action GameLoose;
+    public static event Action<Game> GameState;
+    public static event Action GameReload;
 
     void Start()
     {
@@ -31,17 +30,12 @@ public class GameManager : MonoBehaviour
 
     public void ReloadRound()
     {
-        GameDraw?.Invoke();
+        GameReload?.Invoke();
     }
 
-    public void PlayerWin()
+    public void ChangeStateChanged(Game game)
     {
-        GameWin?.Invoke();
-    }
-
-    public void AIWin()
-    {
-        GameLoose?.Invoke();
+        GameState?.Invoke(game);
     }
 
     internal void SetPlayerDecision(RSPVariants variant)

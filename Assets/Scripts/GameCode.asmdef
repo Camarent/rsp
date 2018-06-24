@@ -1,0 +1,12 @@
+{
+    "name": "GameCode",
+    "references": [
+        "RandomGenerators",
+        "Unity.TextMeshPro.Editor",
+        "Unity.TextMeshPro"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}

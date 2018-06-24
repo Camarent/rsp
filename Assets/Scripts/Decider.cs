@@ -11,7 +11,7 @@ public class Decider : MonoBehaviour
     public void Decide(RSPVariants player, RSPVariants ai)
     {
         if (player == ai)
-            gameManager.ReloadRound();
+            gameManager.ChangeStateChanged(Game.Draw);
         else
         {
             if (player == RSPVariants.Rock && ai == RSPVariants.Scissors ||
@@ -19,12 +19,12 @@ public class Decider : MonoBehaviour
                 player == RSPVariants.Paper && ai == RSPVariants.Rock)
             {
                 scoreController.IncreaseScore(PlayerType.Player);
-                gameManager.PlayerWin();
+                gameManager.ChangeStateChanged(Game.Win);
             }
             else
             {
                 scoreController.IncreaseScore(PlayerType.AI);
-                gameManager.AIWin();
+                gameManager.ChangeStateChanged(Game.Loose);
             }
         }
     }

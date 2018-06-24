@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using RandomGenerators;
 using RSP;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class AIController : MonoBehaviour
 {
     public RandomGenerator<Game>.Type aiType;
     [Range(0,1)]
+    [OnValueChanged(nameof(ChangePossibility))]
     public float Possibility = 0.5f; 
 
     private RandomGenerator<Game> generator;
@@ -22,6 +24,13 @@ public class AIController : MonoBehaviour
 
         ChangeAIType(aiType, Possibility);
 	}
+
+    public void ChangePossibility(float newPossibility)
+    {
+        var possibility = Mathf.Clamp01(newPossibility);
+        var weights = new float[3] { possibility, (1 - possibility) / 2, (1 - possibility) / 2 };
+        generator.SetTypeAndWeight(aiType, weights);
+    }
 
     public void ChangeAIType(RandomGenerator<Game>.Type newType, float newPossibility)
     {
