@@ -44,7 +44,7 @@ namespace RandomGenerators
             this.data = data;
             this.weights = weights;
             if ((weights == null || weights.Length != data.Length) && type == Type.Weight)
-                Debug.LogError("You have to specify weights for data and weight generator.");
+                Debug.LogError("You have to specify weights for data for this type of generator.");
 
             CalculateTotalWeight(weights);
         }
@@ -58,6 +58,36 @@ namespace RandomGenerators
                 else
                     Debug.LogWarning("All negative weights will be used as zero.");
             }
+        }
+
+
+        public void SetTypeAndWeight(Type newType, float[] weights)
+        {
+            if (type == Type.Weight && (weights == null || weights.Length != data.Length))
+            {
+                Debug.LogError("You have to specify weights for data for this type of generator.");
+                return;
+            }
+            if(type == Type.Weight && weights.Length != data.Length)
+            {
+                Debug.LogError("You have to have the same length of weights and data.");
+                return;
+            }
+
+            type = newType;
+            this.weights = weights;
+        }
+
+        public void SetType(Type newType)
+        {
+            type = newType;
+            if ((weights == null || weights.Length != data.Length) && type == Type.Weight)
+                Debug.LogError("You have to specify weights for data for this type of generator.");
+        }
+
+        public void SetWeights(float[] weights)
+        {
+            this.weights = weights;
         }
 
         public T Generate()

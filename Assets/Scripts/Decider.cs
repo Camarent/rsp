@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RSP;
 using UnityEngine;
 
 public class Decider : MonoBehaviour
@@ -7,22 +8,22 @@ public class Decider : MonoBehaviour
     public GameManager gameManager;
     public ScoreController scoreController;
 
-    public void Decide(Enums.RSPVariants player, Enums.RSPVariants ai)
+    public void Decide(RSPVariants player, RSPVariants ai)
     {
         if (player == ai)
             gameManager.ReloadRound();
         else
         {
-            if (player == Enums.RSPVariants.Rock && ai == Enums.RSPVariants.Scissors ||
-                player == Enums.RSPVariants.Scissors && ai == Enums.RSPVariants.Paper ||
-                player == Enums.RSPVariants.Paper && ai == Enums.RSPVariants.Rock)
+            if (player == RSPVariants.Rock && ai == RSPVariants.Scissors ||
+                player == RSPVariants.Scissors && ai == RSPVariants.Paper ||
+                player == RSPVariants.Paper && ai == RSPVariants.Rock)
             {
-                scoreController.IncreaseScore(Enums.PlayerType.Player);
+                scoreController.IncreaseScore(PlayerType.Player);
                 gameManager.PlayerWin();
             }
             else
             {
-                scoreController.IncreaseScore(Enums.PlayerType.AI);
+                scoreController.IncreaseScore(PlayerType.AI);
                 gameManager.AIWin();
             }
         }

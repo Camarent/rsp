@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RSP;
 using TMPro;
 using UnityEngine;
 
@@ -11,9 +12,9 @@ public class ScoreController : MonoBehaviour
     public TextMeshProUGUI playerText;
     public TextMeshProUGUI aiText;
 
-    public void IncreaseScore(Enums.PlayerType winner)
+    public void IncreaseScore(PlayerType winner)
     {
-        if (winner == Enums.PlayerType.AI)
+        if (winner == PlayerType.AI)
         {
             aiScore++;
             aiText.text = aiScore.ToString();

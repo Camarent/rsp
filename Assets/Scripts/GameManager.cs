@@ -1,31 +1,67 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using RSP;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
+    private RSPVariants playerChoosed;
+    private RSPVariants aiChoosed;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private PlayerController player;
+    private AIController ai;
+    private ScoreController score;
+    private Decider decider;
+
+    public static event Action<RSPVariants> PlayerChoosedEvent;
+    public static event Action<RSPVariants> AIChoosedEvent;
+
+    public static event Action GameWin;
+    public static event Action GameDraw;
+    public static event Action GameLoose;
+
+    void Start()
+    {
+        player = FindObjectOfType<PlayerController>();
+        ai = FindObjectOfType<AIController>();
+        score = FindObjectOfType<ScoreController>();
+        decider = FindObjectOfType<Decider>();
+    }
 
     public void ReloadRound()
     {
-        throw new System.NotImplementedException();
+        GameDraw?.Invoke();
     }
 
     public void PlayerWin()
     {
-        throw new System.NotImplementedException();
+        GameWin?.Invoke();
     }
 
     public void AIWin()
     {
-        throw new System.NotImplementedException();
+        GameLoose?.Invoke();
+    }
+
+    internal void SetPlayerDecision(RSPVariants variant)
+    {
+        playerChoosed = variant;
+        PlayerChoosedEvent?.Invoke(playerChoosed);
+        StartCoroutine(Waiter());
+    }
+
+    private IEnumerator Waiter()
+    {
+        yield return new WaitForSeconds(1f);
+        aiChoosed = ai.Choose();
+        AIChoosedEvent?.Invoke(aiChoosed);
+        yield return new WaitForSeconds(1f);
+        decider.Decide(playerChoosed, aiChoosed);
+    }
+
+    internal RSPVariants GetPlayerDecision()
+    {
+        return playerChoosed;
     }
 }

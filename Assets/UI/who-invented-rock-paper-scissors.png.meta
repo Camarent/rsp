@@ -5,6 +5,9 @@ TextureImporter:
     21300000: who-invented-rock-paper-scissors_0
     21300002: who-invented-rock-paper-scissors_1
     21300004: who-invented-rock-paper-scissors_2
+    21300006: who-invented-rock-paper-scissors_3
+    21300008: who-invented-rock-paper-scissors_4
+    21300010: who-invented-rock-paper-scissors_5
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -93,7 +96,7 @@ TextureImporter:
         x: 51
         y: 112
         width: 142
-        height: 186
+        height: 131
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -110,10 +113,10 @@ TextureImporter:
       name: who-invented-rock-paper-scissors_1
       rect:
         serializedVersion: 2
-        x: 310
-        y: 63
+        x: 311
+        y: 115
         width: 150
-        height: 174
+        height: 123
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,10 +133,10 @@ TextureImporter:
       name: who-invented-rock-paper-scissors_2
       rect:
         serializedVersion: 2
-        x: 492
+        x: 571
         y: 100
-        width: 236
-        height: 193
+        width: 109
+        height: 134
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,6 +145,66 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e6f34a46da6e4f24c9d1711ba055f925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: who-invented-rock-paper-scissors_3
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 239
+        width: 236
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30ca1b4bbcfd2a44bb382ea2afe5c4f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: who-invented-rock-paper-scissors_4
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 240
+        width: 137
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff50d4bcd58719418b77e9f192d0785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: who-invented-rock-paper-scissors_5
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 60
+        width: 155
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69e83a84a6212414bbbfaeb104577426
       vertices: []
       indices: 
       edges: []
