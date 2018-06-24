@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enums {
-
+namespace RSP
+{
     public enum PlayerType
     {
         Player,
@@ -15,5 +15,12 @@ public class Enums {
         Rock,
         Scissors,
         Paper
+    }
+
+    public enum Game
+    {
+        Win,
+        Draw,
+        Loose
     }
 }
