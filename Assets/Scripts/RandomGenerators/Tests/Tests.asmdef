@@ -1,0 +1,14 @@
+{
+    "name": "RandomGenerators.Tests",
+    "references": [
+        "RandomGenerators"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}
