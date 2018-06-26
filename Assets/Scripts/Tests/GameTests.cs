@@ -68,10 +68,12 @@ public class GameTests
         ai = Utils.FindObjectsOfTypeAll<AIController>()[0];
         ai.ChangeAIType(RandomGenerator<Game>.Type.Weight, 0.65f);
 
-        yield return StartTest(50);
+        yield return StartTest(100);
+        Debug.Log($"Percent is: {percent}");
 
-        Assert.Less(percent, 0.7f);
-        Assert.Greater(percent, 0.6f);
+        Assert.Less(percent, 0.75f);
+        Assert.Greater(percent, 0.55f);
+        
     }
 
     private IEnumerator LoadScene()
